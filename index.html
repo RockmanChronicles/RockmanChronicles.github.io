@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RC Event</title>
+    <!-- js -->
+    <script type="module" src="assets/js/main.js?v=1.0"></script>
+    <!-- 引入 Vue.js -->
+    <script src="assets/js/vue.global.js"></script>
+    <script src="assets/js/axios.min.js"></script>
+    <!-- CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- tailwind -->
+    <link href="assets/css/tailwind.min.css" rel="stylesheet">
+
+</head>
+<body class="text-white relative overflow-y-auto bg-gray-800">
+    <div class="md:block fixed h-full w-full z-0 overflow-hidden">
+        <img src="assets/img/RMbg.jpg" class="object-cover h-full w-full object-center opacity-40" style="transform: scaleX(-1);">
+    </div>
+  
+    <!-- 中間主體區塊，z-index 10 確保在背景圖上方 -->
+    <div id="app" class="relative z-10 flex flex-col items-center justify-start w-full">
+        <div class="w-full max-w-4xl  py-10 md:rounded  mx-auto">
+            <!-- 標題 -->
+            <a href="https://sites.google.com/site/rockmanchronicles" target="_blank"><img src="assets/img/TitleRC_Black.png" class="object-cover mb-4 mx-auto"></a>
+            <!-- <h1 class="text-4xl font-bold text-center mb-6 outlined-text"> 對外節目表 </h1> -->
+            <div id="countdown" class="text-2xl font-bold text-center mt-6 outlined-text">
+                 {{ countdown }}
+            </div>
+            <!-- <div v-if="RC.length == 0" class="text-center text-blue-300">資料載入中...</div> -->
+            <!-- 資料讀取顯示Loading -->
+            <div class="loading-container" v-if="RC.length == 0">
+                <div class="twitch-spinner"></div>
+                <div class="loading-text">資料載入中...</div>
+            </div>
+        
+    
+            <div v-else v-for="series in RC" class="w-full  px-4">
+                <h1 class="text-4xl font-bold text-center mb-6 py-10 outlined-text">{{series.title}}</h1>
+        
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                    <div v-for="item in series.data" class="neon-card flex flex-col p-4 gap-3 transform hover:scale-105 transition duration-300 animate-slide-up">
+                        
+                        <!-- 日期區塊 -->
+                        <div class="border-b border-gray-600 pb-2 text-sm text-gray-300 text-center font-medium">
+                            <p class="font-semibold">📅{{ item.date }}</p>
+                        </div>
+
+                        <a  :href="item.link">
+                            <!-- 資訊區 -->
+                            <div class="flex items-start gap-4">
+                                <img v-if="item.imgURL != ''" :src="item.imgURL" class="profileImg w-16 h-16 object-cover rounded-full" alt="Twitch頭貼">
+                                <div v-if="item.player != ''" class="flex flex-col">
+                                    <h2 class="text-xl font-semibold">{{ item.game }}</h2>
+                                    <p class="text-l font-semibold">{{ item.player }}</p>
+                                    <p class="text-sm text-gray-400">{{ item.note }}</p>
+                                </div>
+                                <div v-else class="flex flex-col">
+                                    <h2 class="text-xl font-semibold">{{ item.game }}</h2>
+                                    <p class="text-xl font-semibold"> 暫時從缺 </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
