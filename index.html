@@ -60,7 +60,7 @@
                         
                         <!-- 日期區塊 -->
                         <div class="border-b border-gray-600 pb-2 text-sm text-gray-300 text-center font-medium">
-                            <p class="font-semibold">📅{{ item.date }}</p>
+                            <p class="font-semibold">📅{{ item.date }}</p> 
                         </div>
 
                         <a  :href="item.link">
@@ -68,13 +68,13 @@
                             <div class="flex items-start gap-4">
                                 <img v-if="item.imgURL != ''" :src="item.imgURL" class="profileImg w-16 h-16 object-cover rounded-full" alt="Twitch頭貼">
                                 <div v-if="item.player != ''" class="flex flex-col">
-                                    <h2 class="text-xl font-semibold">{{ item.game }}</h2>
-                                    <p class="text-l font-semibold">{{ item.player }}</p>
-                                    <p class="text-sm text-gray-400">{{ item.note }}</p>
+                                    <h2 class="text-xl font-semibold pb-1 text-white">{{ item.game }}</h2>
+                                    <p class="text-l font-semibold pb-1">跑者: {{ item.player }}</p>
+                                    <p class="text-sm text-gray-400">備註: {{ item.note }}</p>
                                 </div>
                                 <div v-else class="flex flex-col">
-                                    <h2 class="text-xl font-semibold">{{ item.game }}</h2>
-                                    <p class="text-xl font-semibold"> 暫時從缺 </p>
+                                    <h2 class="text-xl font-semibold pb-1 text-white">{{ item.game }}</h2>
+                                    <p class="text-xl font-semibold pb-1"> 跑者: 暫時從缺 </p>
                                 </div>
                             </div>
                         </a>

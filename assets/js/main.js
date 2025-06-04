@@ -40,7 +40,7 @@ const app = Vue.createApp({
             const res = await axios.get(sheetUrl);
             this.allData = res.data;
 
-            console.log("拿到 Google Sheets 資料:", this.allData);
+            // console.log("拿到 Google Sheets 資料:", this.allData);
 
             // 先拿到 Twitch Token
             await this.getToken();
@@ -99,7 +99,7 @@ const app = Vue.createApp({
                 }
             });
             this.token = res.data.access_token;
-            console.log("取得 Twitch Token:", this.token);
+            // console.log("取得 Twitch Token:", this.token);
         },
         startCountdown() {
             const startDate = new Date('2025-07-01T20:00:00+08:00'); // 活動開始時間

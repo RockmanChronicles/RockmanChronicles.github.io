@@ -220,3 +220,78 @@
     background-color: rgba(9, 33, 55, 0.807);
     color:#fff !important;
   }
+
+  .playName {
+    font-family: 'Adobe 繁黑體 Std B', sans-serif;
+    color: #a886e7 !important;
+    --stroke-width-out: 4px;
+    --stroke-color-out: #000;
+    --stroke-width-in: 2px;
+    --stroke-color-in: #fff;
+
+    text-shadow:
+      calc(var(--stroke-width-in) * 1) calc(var(--stroke-width-in) * 0) 0
+        var(--stroke-color-in),
+      calc(var(--stroke-width-in) * 0.9239) calc(var(--stroke-width-in) * 0.3827) 0
+        var(--stroke-color-in),
+      calc(var(--stroke-width-in) * 0.7071) calc(var(--stroke-width-in) * 0.7071) 0
+        var(--stroke-color-in),
+      calc(var(--stroke-width-in) * 0.3827) calc(var(--stroke-width-in) * 0.9239) 0
+        var(--stroke-color-in),
+      calc(var(--stroke-width-in) * 0) calc(var(--stroke-width-in) * 1) 0
+        var(--stroke-color-in),
+      calc(var(--stroke-width-in) * -0.3827) calc(var(--stroke-width-in) * 0.9239) 0
+        var(--stroke-color-in),
+      calc(var(--stroke-width-in) * -0.7071) calc(var(--stroke-width-in) * 0.7071) 0
+        var(--stroke-color-in),
+      calc(var(--stroke-width-in) * -0.9239) calc(var(--stroke-width-in) * 0.3827) 0
+        var(--stroke-color-in),
+      calc(var(--stroke-width-in) * -1) calc(var(--stroke-width-in) * 0) 0
+        var(--stroke-color-in),
+      calc(var(--stroke-width-in) * -0.9239) calc(var(--stroke-width-in) * -0.3827) 0
+        var(--stroke-color-in),
+      calc(var(--stroke-width-in) * -0.7071) calc(var(--stroke-width-in) * -0.7071) 0
+        var(--stroke-color-in),
+      calc(var(--stroke-width-in) * -0.3827) calc(var(--stroke-width-in) * -0.9239) 0
+        var(--stroke-color-in),
+      calc(var(--stroke-width-in) * 0) calc(var(--stroke-width-in) * -1) 0
+        var(--stroke-color-in),
+      calc(var(--stroke-width-in) * 0.3827) calc(var(--stroke-width-in) * -0.9239) 0
+        var(--stroke-color-in),
+      calc(var(--stroke-width-in) * 0.7071) calc(var(--stroke-width-in) * -0.7071) 0
+        var(--stroke-color-in),
+      calc(var(--stroke-width-in) * 0.9239) calc(var(--stroke-width-in) * -0.3827) 0
+        var(--stroke-color-in),
+      calc(var(--stroke-width-out) * 1) calc(var(--stroke-width-out) * 0) 0
+        var(--stroke-color-out),
+      calc(var(--stroke-width-out) * 0.9239) calc(var(--stroke-width-out) * 0.3827) 0
+        var(--stroke-color-out),
+      calc(var(--stroke-width-out) * 0.7071) calc(var(--stroke-width-out) * 0.7071) 0
+        var(--stroke-color-out),
+      calc(var(--stroke-width-out) * 0.3827) calc(var(--stroke-width-out) * 0.9239) 0
+        var(--stroke-color-out),
+      calc(var(--stroke-width-out) * 0) calc(var(--stroke-width-out) * 1) 0
+        var(--stroke-color-out),
+      calc(var(--stroke-width-out) * -0.3827) calc(var(--stroke-width-out) * 0.9239) 0
+        var(--stroke-color-out),
+      calc(var(--stroke-width-out) * -0.7071) calc(var(--stroke-width-out) * 0.7071) 0
+        var(--stroke-color-out),
+      calc(var(--stroke-width-out) * -0.9239) calc(var(--stroke-width-out) * 0.3827) 0
+        var(--stroke-color-out),
+      calc(var(--stroke-width-out) * -1) calc(var(--stroke-width-out) * 0) 0
+        var(--stroke-color-out),
+      calc(var(--stroke-width-out) * -0.9239) calc(var(--stroke-width-out) * -0.3827) 0
+        var(--stroke-color-out),
+      calc(var(--stroke-width-out) * -0.7071) calc(var(--stroke-width-out) * -0.7071) 0
+        var(--stroke-color-out),
+      calc(var(--stroke-width-out) * -0.3827) calc(var(--stroke-width-out) * -0.9239) 0
+        var(--stroke-color-out),
+      calc(var(--stroke-width-out) * 0) calc(var(--stroke-width-out) * -1) 0
+        var(--stroke-color-out),
+      calc(var(--stroke-width-out) * 0.3827) calc(var(--stroke-width-out) * -0.9239) 0
+        var(--stroke-color-out),
+      calc(var(--stroke-width-out) * 0.7071) calc(var(--stroke-width-out) * -0.7071) 0
+        var(--stroke-color-out),
+      calc(var(--stroke-width-out) * 0.9239) calc(var(--stroke-width-out) * -0.3827) 0
+        var(--stroke-color-out);
+  }
