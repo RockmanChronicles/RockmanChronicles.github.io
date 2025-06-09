@@ -69,8 +69,8 @@
                                 <img v-if="item.imgURL != ''" :src="item.imgURL" class="profileImg w-16 h-16 object-cover rounded-full" alt="Twitch頭貼">
                                 <div v-if="item.player != ''" class="flex flex-col">
                                     <h2 class="text-xl font-semibold pb-1 text-white">{{ item.game }}</h2>
-                                    <p class="text-l font-semibold pb-1">跑者: {{ item.player }}</p>
-                                    <p class="text-sm text-gray-400">備註: {{ item.note }}</p>
+                                    <p class="text-l font-semibold pb-1">跑者: <span v-html="item.player.replace(/\n/g,'<br>')"></span></p>
+                                    <p class="text-sm text-gray-400">備註: <span v-html="item.note.replace(/\n/g,'<br>')"></span></p>
                                 </div>
                                 <div v-else class="flex flex-col">
                                     <h2 class="text-xl font-semibold pb-1 text-white">{{ item.game }}</h2>
