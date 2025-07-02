@@ -7,11 +7,6 @@ const app = Vue.createApp({
             allData: [],
             token: '',
             countdown: '',
-            years: [2025,2024],
-            currentYear: 2025,
-            dataSources: {
-                2024: 'assets/event_json/RC2024.json',        // 本地 JSON
-            },
         }
     },
     mounted() {
@@ -20,40 +15,21 @@ const app = Vue.createApp({
 
     },
     methods: {
-        async switchYear(year) {
-            this.currentYear = year;
-            this.RC = [];
-        
-            // 若是 2025 就繼續使用 Twitch API
-            if (year === 2025) {
-                await this.getList();
-            } 
-            else {
-                // 2024 為本地 JSON，無需抓大頭貼
-                const res = await axios.get(this.dataSources[year]);
-                this.RC = res.data;
-            }
-        },
         async getList() {
             // 先拿到 Google Sheets 資料
             const sheetUrl = 'https://script.google.com/macros/s/AKfycbxC-ua2DAzcAQz9IE6Uf97LDzyvAfhaaUl6R0phM8QV5Bx4PucZAq6nNV4jamVLPWk8Mw/exec?cmd=list';
             const res = await axios.get(sheetUrl);
             this.allData = res.data;
 
-            // console.log("拿到 Google Sheets 資料:", this.allData);
+            console.log("拿到 Google Sheets 資料:", this.allData);
 
             // 先拿到 Twitch Token
             await this.getToken();
 
             // 幫每一個 player 丟 getURL，並平行處理
             const promises = this.allData.map(item => {
-                if(item.player != ''){
-                    const twitchID = item.player.split('(')[0].trim();
-                    return this.getURL(twitchID);
-                }
-                else{
-                    return '';
-                }
+                const twitchID = item.player.split('(')[0].trim();
+                return this.getURL(twitchID);
             });
 
             // 平行等結果回來
@@ -99,7 +75,7 @@ const app = Vue.createApp({
                 }
             });
             this.token = res.data.access_token;
-            // console.log("取得 Twitch Token:", this.token);
+            console.log("取得 Twitch Token:", this.token);
         },
         startCountdown() {
             const startDate = new Date('2025-07-01T20:00:00+08:00'); // 活動開始時間
@@ -114,7 +90,7 @@ const app = Vue.createApp({
                 }
             
                 if (now >= startDate) {
-                    this.countdown = 'RC2025活動開始!!';
+                    this.countdown = '活動開始';
                     return;
                 }
             
