@@ -13,6 +13,7 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <!-- tailwind -->
     <link href="assets/css/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 <body class="text-white relative overflow-y-auto bg-gray-800">
@@ -22,16 +23,14 @@
   
     <!-- 中間主體區塊，z-index 10 確保在背景圖上方 -->
     <div id="app" class="relative z-10 flex flex-col items-center justify-start w-full">
-        <div class="w-full max-w-4xl  py-10 md:rounded  mx-auto">
+        <div class="w-full max-w-4xl py-10 md:rounded  mx-auto">
             <!-- 標題 -->
-            <a href="https://sites.google.com/site/rockmanchronicles" target="_blank"><img src="assets/img/TitleRC_Black.png" class="object-cover mb-4 mx-auto"></a>
+            <a href="https://www.twitch.tv/rockmanchronicles" target="_blank"><img src="assets/img/TitleRC_Black.png" class="object-cover mb-4 mx-auto"></a>
             <!-- <h1 class="text-4xl font-bold text-center mb-6 outlined-text"> 對外節目表 </h1> -->
-            <div v-if="countdown =='活動開始'">
+            <div v-if="countdown =='活動開始'" >
                 <iframe
-                    style="border-radius: 10px;"
+                    class="rounded-[10px] h-[240px] sm:h-[480px] w-full"
                     src="https://player.twitch.tv/?channel=rockmanchronicles&parent=rockmanchronicles.github.io"
-                    height="480px"
-                    width="100%"
                     allowfullscreen>
                 </iframe>
             </div>
