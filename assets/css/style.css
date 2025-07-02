@@ -1,9 +1,5 @@
   @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-  .radius{
-    border-radius: 10px;
-  }
-
   /* global.css 或 style 標籤中 */
   .pacifico-regular {
     font-family: "Pacifico", cursive;
