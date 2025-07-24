@@ -17,7 +17,7 @@ const app = Vue.createApp({
     methods: {
         async getList() {
             // 先拿到 Google Sheets 資料
-            const sheetUrl = 'https://script.google.com/macros/s/AKfycbxC-ua2DAzcAQz9IE6Uf97LDzyvAfhaaUl6R0phM8QV5Bx4PucZAq6nNV4jamVLPWk8Mw/exec?cmd=list';
+            const sheetUrl = 'https://script.google.com/macros/s/AKfycbwwvjIAzYJVLFgHm3wmxK81-_ixgwZMCK0Odsb5Ydcabf6GaXl6KVUFV9C02u5plhyrFw/exec?cmd=list';
             const res = await axios.get(sheetUrl);
             this.allData = res.data;
 
