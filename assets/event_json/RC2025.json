@@ -1,0 +1,225 @@
+[
+    {
+        "title": "元祖洛克人系列",
+        "data": [
+            {
+                "date": "2025/07/01(二) PM 8:00",
+                "game": "Rockman / Rockman 2",
+                "player": "yuusakewt(幽奇)",
+                "note": "MD版",
+                "link": "https://www.twitch.tv/yuusakewt",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/2ed245fe-273c-4225-9a7e-1796f6b13aa1-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/02(三) PM 8:00",
+                "game": "Rockman 3",
+                "player": "AllanCat (AC)",
+                "note": "正常玩",
+                "link": "https://www.twitch.tv/AllanCat",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/allancat-profile_image-45f7380b16d737a7-300x300.jpeg"
+            },
+            {
+                "date": "2025/07/03(四) PM 8:00",
+                "game": "Rockman 4",
+                "player": "minazukitouka(水無月悠歌)",
+                "note": "正常玩就好",
+                "link": "https://www.twitch.tv/minazukitouka",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/e3179a47-4f8d-480a-86de-ce1088fbb92b-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/04(五) PM 8:00",
+                "game": "Rockman 5",
+                "player": "tsukumo_momoka(九十九桃華)",
+                "note": "關卡道中動力滑鏟only(超過兩小時開放俗頭特武)和正常玩共兩輪第一輪合輯版 第二輪蘿露hack版",
+                "link": "https://www.twitch.tv/tsukumo_momoka",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/b0a77080-cce7-4077-99f4-92e315e90b8f-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/05(六) PM 8:00",
+                "game": "Rockman 6",
+                "player": "RootTsou_Game(Root)",
+                "note": "PS版，第一輪正常玩，第二輪只用拳頭拼過關",
+                "link": "https://www.twitch.tv/RootTsou_Game",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/622582f4-e3a3-40bc-a2dd-86235fd115ac-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/06(日) PM 8:00",
+                "game": "Rockman 7",
+                "player": "ts01711975(水色孤獨)",
+                "note": "正常玩 應該吧?",
+                "link": "https://www.twitch.tv/ts01711975",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/23fd539c-4294-47f8-ad87-7f33c3c77c5a-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/07(一) PM 8:00",
+                "game": "Rockman 8",
+                "player": "yuusakewt(幽奇)",
+                "note": "足球人(只能用足球 除非球解不了)",
+                "link": "https://www.twitch.tv/yuusakewt",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/2ed245fe-273c-4225-9a7e-1796f6b13aa1-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/08(二) PM 8:00",
+                "game": "Rockman & Forte",
+                "player": "world9918(世界)",
+                "note": "洛克人正常玩一輪 有時間再加佛魯迪一輪",
+                "link": "https://www.twitch.tv/world9918",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/cd1dc0ff-3728-456c-85b9-3b7072acf254-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/09(三) PM 8:00",
+                "game": "Rockman 9",
+                "player": "RootTsou_Game(Root)",
+                "note": "先正常破一輪普通難度，時間還夠就開超級英雄(自虐)模式",
+                "link": "https://www.twitch.tv/RootTsou_Game",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/622582f4-e3a3-40bc-a2dd-86235fd115ac-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/10(四) PM 8:00",
+                "game": "Rockman 10",
+                "player": "wuseagal(武席格)",
+                "note": "先打DLC3關 洛克人Normal難度 隨機選關正常玩",
+                "link": "https://www.twitch.tv/wuseagal",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8d9cfdb-06f1-44fb-96ea-edd1337260d4-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/11(五) PM 8:00",
+                "game": "Rockman 11",
+                "player": "Append (鴉片) ",
+                "note": "Richman 11 (SuperHero)",
+                "link": "https://www.twitch.tv/Append",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/34692959-6ac2-4ca6-8759-3a5b27cb0a3f-profile_image-300x300.png"
+            }
+        ]
+    },
+    {
+        "title": "洛克人X系列",
+        "data": [
+            {
+                "date": "2025/07/12(六) PM 8:00",
+                "game": "Rockman X",
+                "player": "ts01711975(水色孤獨)",
+                "note": "跑2趟 100%1次  素身1次[有腳盔]",
+                "link": "https://www.twitch.tv/ts01711975",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/23fd539c-4294-47f8-ad87-7f33c3c77c5a-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/13(日) PM 8:00",
+                "game": "Rockman X2",
+                "player": "tail_komp(骰子人克羅)",
+                "note": "撿學長全碎片(NS合輯) 時間不到加跑一輪無鎧甲",
+                "link": "https://www.twitch.tv/tail_komp",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/864198f6-b92a-4410-a639-e620b7d0a614-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/14(一) PM 8:00",
+                "game": "Rockman X3",
+                "player": "tigoshadow(踢狗__)",
+                "note": "正常玩 (X合輯版)",
+                "link": "https://www.twitch.tv/tigoshadow",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/d2b4a956-f5b4-4cf6-b722-38548d19dbfc-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/15(二) PM 8:00",
+                "game": "Rockman X4",
+                "player": "kyo99(水無月翔)",
+                "note": "X7出乎意料地有人先報，只好回頭挑戰佛雙線",
+                "link": "https://www.twitch.tv/kyo99",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/4347d2371d8688c1-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/16(三) PM 8:00",
+                "game": "Rockman X5",
+                "player": "x2205678400000",
+                "note": "全關卡雙結局(雙主角練習關卡跟最後一關)",
+                "link": "https://www.twitch.tv/x2205678400000",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/d3510de0-a7b6-4951-8b6f-c3cc6353f5fe-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/17(四) PM 8:00",
+                "game": "Rockman X6",
+                "player": "Ds83171(阿痕)",
+                "note": "邊跑邊巫術解說",
+                "link": "https://www.twitch.tv/Ds83171",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/e7665113965a3816-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/18(五) PM 8:00",
+                "game": "Rockman X7",
+                "player": "LenmonLu2 (拎萌路路)",
+                "note": "新檔案從頭完走一輪［挑戰限制：禁艾克斯．E罐／特武 No Use］",
+                "link": "https://www.twitch.tv/LenmonLu2",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/c66ad33b-0add-4240-be97-a7e41274e5ad-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/19(六) PM 8:00",
+                "game": "Rockman X8",
+                "player": "kihom1234(煙米子二世)",
+                "note": "steam何急normal new game 緩慢不急的跑，大家都太急了，我不能急！",
+                "link": "https://www.twitch.tv/kihom1234",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/4d7f67df-85af-4b18-8614-56bded6df312-profile_image-300x300.png"
+            }
+        ]
+    },
+    {
+        "title": "自由選填區",
+        "data": [
+            {
+                "date": "2025/07/20(日) PM 8:00",
+                "game": "Rockman X DiVE Offline",
+                "player": "zeronatsu978 (雷光一夜干し改)",
+                "note": "Any% NG│質疑WR，挑戰WR，超越WR，譴責FM。",
+                "link": "https://www.twitch.tv/zeronatsu978",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/7874548d-c590-4fbd-a403-b728252148e9-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/21(一) PM 8:00",
+                "game": "Megaman x8 demake(mod)1.0.0.3",
+                "player": "tryit046472(命運交響曲)",
+                "note": "1.0.0.3版紅Zero小牙籤，時間不到會加碼打隱藏頭目或AXL&X各跑一趟",
+                "link": "https://www.twitch.tv/tryit046472",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/6a0ee1c8-2360-4ffd-8135-5a0e8b1df84f-profile_image-300x300.jpeg"
+            },
+            {
+                "date": "2025/07/22(二) PM 8:00",
+                "game": "Megaman unlimited",
+                "player": "kwong_hk (小礦)",
+                "note": "Z線 一般難度 dc沙發區: 九十九桃華",
+                "link": "https://www.twitch.tv/kwong_hk",
+                "imgURL": "https://static-cdn.jtvnw.net/user-default-pictures-uv/dbdc9198-def8-11e9-8681-784f43822e80-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/23(三) PM 8:00",
+                "game": "Maverick Hunter X",
+                "player": "Seihon(雪彥)",
+                "note": "正常玩",
+                "link": "https://www.twitch.tv/Seihon",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/4fe74d20-43c0-42db-9dac-c8c9a6e29499-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/24(四) PM 8:00",
+                "game": "Rockman Zero 3",
+                "player": "cuttlefish05 (烏賊)",
+                "note": "正常玩一次 精靈流一次",
+                "link": "https://www.twitch.tv/cuttlefish05",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/240609c7-34df-4d65-a262-e7b39ee306f1-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/25(五) PM 8:00",
+                "game": "Rockman Zero 4: Double Draw",
+                "player": "Append (鴉片)",
+                "note": "「抽一次抽不到好武器，那你有抽兩次嗎？」",
+                "link": "https://www.twitch.tv/Append",
+                "imgURL": "https://static-cdn.jtvnw.net/jtv_user_pictures/34692959-6ac2-4ca6-8759-3a5b27cb0a3f-profile_image-300x300.png"
+            },
+            {
+                "date": "2025/07/26(六) PM 8:00",
+                "game": "【SP】Rockman X 電視牆",
+                "player": "正常版：八雲劍、史黛菈、蘇雪霏、九十九桃華、鶴目、宮森繪里奈、彭奇、七葉、妮卡沃爾、TG\nhard type：命運交響曲、仙兔、水色孤獨、水無月悠歌\n沙發區：星月櫻奈 ",
+                "note": "正常版X / Hard Tpye X 不同版本同時上牆",
+                "link": "https://www.twitch.tv/正常版：八雲劍、史黛菈、蘇雪霏、九十九桃華、鶴目、宮森繪里奈、彭奇、七葉、妮卡沃爾、TG\nhard type：命運交響曲、仙兔、水色孤獨、水無月悠歌\n沙發區：星月櫻奈",
+                "imgURL": ""
+            }
+        ]
+    }
+]

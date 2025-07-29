@@ -29,17 +29,32 @@
             <!-- 標題 -->
             <a href="https://www.twitch.tv/rockmanchronicles" target="_blank"><img src="assets/img/TitleRC_Black.png" class="object-cover mb-4 mx-auto"></a>
             <!-- <h1 class="text-4xl font-bold text-center mb-6 outlined-text"> 對外節目表 </h1> -->
-            <div v-if="countdown =='活動開始'" >
+            <div v-if="countdown !='活動開始'"  id="countdown" class="text-2xl font-bold text-center mt-6 outlined-text my-6">
+                {{ countdown }}
+           </div>
+            <div>
                 <iframe
                     class="rounded-[10px] h-[240px] sm:h-[480px] w-full"
                     src="https://player.twitch.tv/?channel=rockmanchronicles&parent=rockmanchronicles.github.io"
                     allowfullscreen>
                 </iframe>
             </div>
-            <div v-else id="countdown" class="text-2xl font-bold text-center mt-6 outlined-text">
-                 {{ countdown }}
-            </div>
             <!-- <div v-if="RC.length == 0" class="text-center text-blue-300">資料載入中...</div> -->
+                         <!-- 年度切換按鈕區 -->
+            <div class="flex justify-center my-6 gap-4 pacifico-regular">
+                <button
+                    v-for="year in years"
+                    :key="year"
+                    @click="switchYear(year)"
+                    :class="[
+                        'px-5 pb-1 border-2 rounded-md uppercase tracking-widest',
+                        'transition-colors duration-200',
+                        currentYear === year ? 'btnON' : 'btnOFF'
+                    ]"
+                >
+                {{ year }}
+                </button>
+            </div>
             <!-- 資料讀取顯示Loading -->
             <div class="loading-container" v-if="RC.length == 0">
                 <div class="twitch-spinner"></div>

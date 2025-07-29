@@ -7,6 +7,12 @@ const app = Vue.createApp({
             allData: [],
             token: '',
             countdown: '',
+            years: [2025,2024],
+            currentYear: 2025,
+            dataSources: {
+                2025: 'assets/event_json/RC2025.json',
+                2024: 'assets/event_json/RC2024.json',        // 本地 JSON
+            },
         }
     },
     mounted() {
@@ -15,6 +21,20 @@ const app = Vue.createApp({
 
     },
     methods: {
+        async switchYear(year) {
+            this.currentYear = year;
+            this.RC = [];
+            
+            // 若是 2025 就繼續使用 Twitch API
+            if (year === 2026) {
+                await this.getList();
+            } 
+            else {
+                // 歷年紀錄JSON，無需抓大頭貼
+                const res = await axios.get(this.dataSources[year]);
+                this.RC = res.data;
+            }
+        },
         async getList() {
             // 先拿到 Google Sheets 資料
             const sheetUrl = 'https://script.google.com/macros/s/AKfycbwwvjIAzYJVLFgHm3wmxK81-_ixgwZMCK0Odsb5Ydcabf6GaXl6KVUFV9C02u5plhyrFw/exec?cmd=list';
@@ -78,9 +98,12 @@ const app = Vue.createApp({
             console.log("取得 Twitch Token:", this.token);
         },
         startCountdown() {
-            const startDate = new Date('2025-07-01T20:00:00+08:00'); // 活動開始時間
-            const endDate = new Date('2025-07-31T23:59:59+08:00');   // 活動結束時間
-          
+            const year = new Date().getFullYear();
+            const startDate = new Date(year+'-07-01T20:00:00+08:00'); // 活動開始時間
+            const endDate = new Date(year+'-07-26T23:59:59+08:00');   // 活動結束時間
+            console.log(startDate)
+            console.log(endDate)
+            
             setInterval(() => {
                 const now = new Date();
             
