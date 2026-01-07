@@ -39,8 +39,7 @@
                     allowfullscreen>
                 </iframe>
             </div>
-            <!-- <div v-if="RC.length == 0" class="text-center text-blue-300">資料載入中...</div> -->
-                         <!-- 年度切換按鈕區 -->
+            <!-- 年度切換按鈕區 -->
             <div class="flex justify-center my-6 gap-4 pacifico-regular">
                 <button
                     v-for="year in years"
@@ -73,7 +72,8 @@
                             <p class="font-semibold">📅{{ item.date }}</p>
                         </div>
 
-                        <a  :href="item.link">
+                        <!-- 一般資訊卡 -->
+                        <a  v-if="item.link != ''" :href="item.link">
                             <!-- 資訊區 -->
                             <div class="flex items-start gap-4">
                                 <img v-if="item.imgURL != ''" :src="item.imgURL" class="profileImg w-16 h-16 object-cover rounded-full" alt="Twitch頭貼">
@@ -88,6 +88,19 @@
                                 </div>
                             </div>
                         </a>
+                        <!-- 多人數資訊卡 -->
+                        <div v-else class="flex items-start gap-4">
+                            <img v-if="item.imgURL != ''" :src="item.imgURL" class="profileImg w-16 h-16 object-cover rounded-full" alt="Twitch頭貼">
+                            <div v-if="item.player != ''" class="flex flex-col">
+                                <h2 class="text-xl font-semibold">{{ item.game }}</h2>
+                                <p class="text-l font-semibold whitespace-pre-line" v-html="renderPlayerLinks(item.player)"></p>
+                                <p class="text-sm text-gray-400">{{ item.note }}</p>
+                            </div>
+                            <div v-else class="flex flex-col">
+                                <h2 class="text-xl font-semibold">{{ item.game }}</h2>
+                                <p class="text-xl font-semibold"> 暫時從缺 </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

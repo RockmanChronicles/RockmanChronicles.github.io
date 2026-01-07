@@ -7,26 +7,52 @@ const app = Vue.createApp({
             allData: [],
             token: '',
             countdown: '',
-            years: [2025,2024],
-            currentYear: 2025,
+            years: [2026,2025,2024],
+            currentYear: '',
             dataSources: {
                 2025: 'assets/event_json/RC2025.json',
                 2024: 'assets/event_json/RC2024.json',        // 本地 JSON
             },
+            channelMap:{
+                '八雲劍': 'https://www.youtube.com/@yakumokench2',
+                '史黛菈': 'https://www.youtube.com/@StellaEleanor.Limnos',
+                '蘇雪霏': 'https://www.youtube.com/@SharronSu_ch',
+                '九十九桃華': 'https://www.twitch.tv/tsukumo_momoka',
+                '鶴目': 'https://www.youtube.com/@tsurumemizuha',
+                '宮森繪里奈': 'https://www.youtube.com/@ElinaChelinakawai',
+                '彭奇': 'https://www.youtube.com/@%E5%BD%AD%E5%A5%87Ponchi',
+                '七葉': 'https://www.youtube.com/@7YAnanaha', 
+                '妮卡沃爾': 'https://www.youtube.com/@NicaCh',
+                'TG': 'https://www.youtube.com/@Tenwong_Games',
+                'Ten_Wong': 'https://www.youtube.com/@Tenwong_Games',
+                '命運交響曲': 'https://www.twitch.tv/tryit046472',
+                '仙兔': 'https://www.twitch.tv/vt_alisa',
+                '水色孤獨': 'https://www.twitch.tv/ts01711975',
+                '水無月悠歌': 'https://www.twitch.tv/minazukitouka',
+                '星月櫻奈': 'https://www.youtube.com/@sakurananach.',
+                '布雷諾': 'https://www.youtube.com/@layno_renewlive',
+                '光頭': 'https://www.youtube.com/@atamahikarich.6358',
+                '桃米': 'https://www.youtube.com/@Taomi_TuanZih',
+            }
         }
     },
     mounted() {
+        this.getCurrentYear();
         this.getList();
         this.startCountdown();
 
     },
     methods: {
+        async getCurrentYear() {
+            const year = new Date().getFullYear();
+            this.currentYear = year;
+        },
         async switchYear(year) {
             this.currentYear = year;
             this.RC = [];
             
-            // 若是 2025 就繼續使用 Twitch API
-            if (year === 2026) {
+            // dataSources 有對應年份的話就直接抓 JSON，沒有的話就重新抓 Google Sheets
+            if (!this.dataSources[year]) {
                 await this.getList();
             } 
             else {
@@ -70,6 +96,12 @@ const app = Vue.createApp({
             console.log("整理好的 RC:", this.RC);
         },
         async getURL(name) {
+            const path = `/assets/img/profile_Img/${name}.png`
+            const response = await fetch(path, { method: 'HEAD' });
+            if(response.ok){
+                return path;
+            }
+
             const twitchClipsApiUrl = `https://api.twitch.tv/helix/users?login=${name}`;
             try {
                 const res = await axios.get(twitchClipsApiUrl, {
@@ -125,6 +157,23 @@ const app = Vue.createApp({
             
                 this.countdown = `距離活動開始 ⏳ 倒數 ${days} 天 ${hours} 小時 ${minutes} 分 ${seconds} 秒`;
             }, 1000);
+        },
+        renderPlayerLinks(text) {
+            if (!text) return '';
+            
+            let processedText = text;
+            // 遍歷對照表，將人名替換為 HTML 連結
+            Object.keys(this.channelMap).forEach(name => {
+              const url = this.channelMap[name];
+              // 使用正則表達式確保精準匹配（避免名字的一部分被誤換）
+              const regex = new RegExp(name, 'g');
+              processedText = processedText.replace(regex, 
+                `<a href="${url}" target="_blank" class="text-blue-400 hover:underline">${name}</a>`
+              );
+            });
+        
+            // 處理換行符號 \n 轉為 <br>
+            return processedText.replace(/\n/g, '<br>');
         },
     },
 })
