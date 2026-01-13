@@ -83,7 +83,20 @@ const app = Vue.createApp({
 
             // 把結果塞回 allData
             this.allData.forEach((item, index) => {
-                item.imgURL = imgURLs[index];
+                if(imgURLs[index] !=""){
+                    item.imgURL = imgURLs[index];
+                }
+                else{
+                    // 如果 Twitch 沒有大頭貼，就嘗試抓本地圖片
+                    this.getLoaclImg(item.player.split('(')[0].trim()).then(path => {
+                        if(path != undefined){
+                            item.imgURL = path;
+                        }
+                        else{
+                            item.imgURL = "";
+                        }
+                    });
+                }
             });
 
             // 整理 RC
@@ -95,12 +108,14 @@ const app = Vue.createApp({
 
             console.log("整理好的 RC:", this.RC);
         },
-        async getURL(name) {
+        async getLoaclImg(name) {
             const path = `/assets/img/profile_Img/${name}.png`
             const response = await fetch(path, { method: 'HEAD' });
             if(response.ok){
                 return path;
             }
+        },
+        async getURL(name) {
 
             const twitchClipsApiUrl = `https://api.twitch.tv/helix/users?login=${name}`;
             try {
@@ -112,7 +127,7 @@ const app = Vue.createApp({
                 });
                 return res.data.data[0]?.profile_image_url || "";
             } catch (error) {
-                console.error("抓取 Twitch 大頭貼失敗:", name, error);
+                console.log("抓取 Twitch 大頭貼失敗:"+name);
                 return "";
             }
         },
@@ -127,7 +142,7 @@ const app = Vue.createApp({
                 }
             });
             this.token = res.data.access_token;
-            console.log("取得 Twitch Token:", this.token);
+            console.log("取得 Twitch Token!!");
         },
         startCountdown() {
             const year = new Date().getFullYear();

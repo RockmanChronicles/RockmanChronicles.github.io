@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
+    <title>Rockman Chronicles</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rockman Chronicles</title>
+    <link rel="canonical" href="https://rockmanchronicles.github.io">
+    <meta name="description" content="一群不忘童年洛克人回憶的實況主們所共同成立的活動，七月每日晚上在Rockman Chronicles一起準時收看節目！">
+    <meta name="author" content="Rockman Chronicles">
+
+    <meta property="og:title" content="Rockman Chronicles">
+    <meta property="og:description" content="七月每日晚上，與實況主們一起重溫洛克人的感動！">
+    <meta property="og:url" content="https://rockmanchronicles.github.io">
+    <meta property="og:image" content="https://RMbg.jpg"> 
+    <meta property="og:type" content="website">
+    <meta name="keywords" content="Rockman, Chronicles, RockmanChronicles, Rockman Chronicles, RC, Mega Man, 實況, Twitch, 接力, Speedrun, Vtuber">
+
+
     <!-- js -->
     <script type="module" src="assets/js/main.js?v=1.0"></script>
     <!-- 引入 Vue.js -->
@@ -15,19 +27,18 @@
     <link href="assets/css/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <meta name="description" content="一群不忘童年洛克人回憶的實況主們所共同成立的活動，七月每日晚上在Rockman Chronicles一起準時收看節目！">
-    <meta name="canonical" href="https://rockmanchronicles.github.io">
+
 </head>
 <body class="text-white relative overflow-y-auto bg-gray-800">
     <div class="md:block fixed h-full w-full z-0 overflow-hidden">
-        <img src="assets/img/RMbg.jpg" class="object-cover h-full w-full object-center opacity-40">
+        <img src="assets/img/RMbg.jpg" alt="Rockman Chronicles background image" class="object-cover h-full w-full object-center opacity-40">
     </div>
-  
+    <h1 class="hidden">Rockman Chronicles</h1>
     <!-- 中間主體區塊，z-index 10 確保在背景圖上方 -->
     <div id="app" class="relative z-10 flex flex-col items-center justify-start w-full">
         <div class="w-full max-w-4xl py-10 md:rounded  mx-auto">
             <!-- 標題 -->
-            <a href="https://www.twitch.tv/rockmanchronicles" target="_blank"><img src="assets/img/TitleRC_Black.png" class="object-cover mb-4 mx-auto"></a>
+            <a href="https://www.twitch.tv/rockmanchronicles" target="_blank"><img src="assets/img/TitleRC_Black.png" alt="Rockman Chronicles Logo" class="object-cover mb-4 mx-auto"></a>
             <!-- <h1 class="text-4xl font-bold text-center mb-6 outlined-text"> 對外節目表 </h1> -->
             <div v-if="countdown !='活動開始'"  id="countdown" class="text-2xl font-bold text-center mt-6 outlined-text my-6">
                 {{ countdown }}
