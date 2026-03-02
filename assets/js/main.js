@@ -190,6 +190,22 @@ const app = Vue.createApp({
             // 處理換行符號 \n 轉為 <br>
             return processedText.replace(/\n/g, '<br>');
         },
-    },
+        getStreamerName(player) {
+            if (!player) return '暫時從缺';
+    
+            // 匹配格式：ID (暱稱) 或 ID（暱稱）
+            // \s* 用於處理可能存在的空格
+            const match = player.match(/^(.+?)\s*[\(\（](.+?)[\)\）]$/);
+    
+            if (match) {
+                const id = match[1].trim();      // roach
+                const nickname = match[2].trim(); // 小強
+                return `${nickname} (${id})`;    // 輸出：小強 (roach)
+            }
+    
+            // 如果沒有括號，代表只有 ID，直接回傳
+            return player.trim();
+        },
+    }
 })
 app.mount('#app');

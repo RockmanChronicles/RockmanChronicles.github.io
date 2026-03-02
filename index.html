@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <title>Rockman Chronicles</title>
+    <title>Rockman Chronicles - 洛克人實況馬拉松</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="canonical" href="https://rockmanchronicles.github.io">
@@ -27,19 +27,40 @@
     <link href="assets/css/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Event",
+          "name": "Rockman Chronicles 洛克人接力馬拉松",
+          "startDate": "2026-07-01",
+          "endDate": "2026-07-31",
+          "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+          "location": {
+            "@type": "VirtualLocation",
+            "url": "https://www.twitch.tv/rockmanchronicles"
+          },
+          "image": ["https://rockmanchronicles.github.io/assets/img/RMbg.jpg"],
+          "description": "一群不忘童年洛克人回憶的實況主們所共同成立的活動，七月每日晚上準時收看！",
+          "organizer": {
+            "@type": "Organization",
+            "name": "Rockman Chronicles",
+            "url": "https://rockmanchronicles.github.io"
+          }
+        }
+    </script>
 </head>
 <body class="text-white relative overflow-y-auto bg-gray-800">
     <div class="md:block fixed h-full w-full z-0 overflow-hidden">
         <img src="assets/img/RMbg.jpg" alt="Rockman Chronicles background image" class="object-cover h-full w-full object-center opacity-40">
     </div>
-    <h1 class="hidden">Rockman Chronicles</h1>
+    
     <!-- 中間主體區塊，z-index 10 確保在背景圖上方 -->
     <div id="app" class="relative z-10 flex flex-col items-center justify-start w-full">
         <div class="w-full max-w-4xl py-10 md:rounded  mx-auto">
             <!-- 標題 -->
             <a href="https://www.twitch.tv/rockmanchronicles" target="_blank"><img src="assets/img/TitleRC_Black.png" alt="Rockman Chronicles Logo" class="object-cover mb-4 mx-auto"></a>
-            <!-- <h1 class="text-4xl font-bold text-center mb-6 outlined-text"> 對外節目表 </h1> -->
+            <h1 class="text-2xl font-bold text-center mt-6 outlined-text my-6">Rockman Chronicles {{years[0]}}</h1>
+            
             <div v-if="countdown !='活動開始'"  id="countdown" class="text-2xl font-bold text-center mt-6 outlined-text my-6">
                 {{ countdown }}
            </div>
@@ -73,7 +94,7 @@
         
     
             <div v-else v-for="series in RC" class="w-full  px-4">
-                <h1 class="text-4xl font-bold text-center mb-6 py-10 outlined-text">{{series.title}}</h1>
+                <h2 class="text-4xl font-bold text-center mb-6 py-10 outlined-text">{{series.title}}</h2>
         
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
                     <div v-for="item in series.data" class="neon-card flex flex-col p-4 gap-3 transform hover:scale-105 transition duration-300 animate-slide-up">
@@ -87,14 +108,14 @@
                         <a  v-if="item.link != ''" :href="item.link">
                             <!-- 資訊區 -->
                             <div class="flex items-start gap-4">
-                                <img v-if="item.imgURL != ''" :src="item.imgURL" class="profileImg w-16 h-16 object-cover rounded-full" alt="Twitch頭貼">
+                                <img v-if="item.imgURL != ''" :src="item.imgURL" class="profileImg w-16 h-16 object-cover rounded-full" :alt="getStreamerName(item.player) + '實況主頭貼'">
                                 <div v-if="item.player != ''" class="flex flex-col">
-                                    <h2 class="text-xl font-semibold">{{ item.game }}</h2>
-                                    <p class="text-l font-semibold">{{ item.player }}</p>
+                                    <h3 class="text-xl font-semibold">{{ item.game }}</h3>
+                                    <p class="text-l font-semibold">{{ getStreamerName(item.player) }}</p>
                                     <p class="text-sm text-gray-400">{{ item.note }}</p>
                                 </div>
                                 <div v-else class="flex flex-col">
-                                    <h2 class="text-xl font-semibold">{{ item.game }}</h2>
+                                    <h3 class="text-xl font-semibold">{{ item.game }}</h3>
                                     <p class="text-xl font-semibold"> 暫時從缺 </p>
                                 </div>
                             </div>
@@ -103,12 +124,12 @@
                         <div v-else class="flex items-start gap-4">
                             <img v-if="item.imgURL != ''" :src="item.imgURL" class="profileImg w-16 h-16 object-cover rounded-full" alt="Twitch頭貼">
                             <div v-if="item.player != ''" class="flex flex-col">
-                                <h2 class="text-xl font-semibold">{{ item.game }}</h2>
+                                <h3 class="text-xl font-semibold">{{ item.game }}</h3>
                                 <p class="text-l font-semibold whitespace-pre-line" v-html="renderPlayerLinks(item.player)"></p>
                                 <p class="text-sm text-gray-400">{{ item.note }}</p>
                             </div>
                             <div v-else class="flex flex-col">
-                                <h2 class="text-xl font-semibold">{{ item.game }}</h2>
+                                <h3 class="text-xl font-semibold">{{ item.game }}</h3>
                                 <p class="text-xl font-semibold"> 暫時從缺 </p>
                             </div>
                         </div>
