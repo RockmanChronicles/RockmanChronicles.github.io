@@ -74,8 +74,25 @@ const app = Vue.createApp({
 
             // 幫每一個 player 丟 getURL，並平行處理
             const promises = this.allData.map(item => {
-                const twitchID = item.player.split('(')[0].trim();
-                return this.getURL(twitchID);
+                const platform = item.platform;
+                const channelID = item.player.split('(')[0].trim();
+                if(platform === "twitch"){
+                    // Twitch 的格式是 ID (暱稱)，我們需要拿到 ID 去抓大頭貼
+                    return this.getURL(channelID);
+                }
+                else if(platform === "youtube"){
+                    return this.getYouTubeAvatar(channelID);
+                }
+                else{
+                    this.getLoaclImg(channelID).then(path => {
+                        if(path != null){
+                            item.imgURL = path;
+                        }
+                        else{
+                            item.imgURL = "";
+                        }
+                    });
+                }
             });
 
             // 平行等結果回來
@@ -83,19 +100,10 @@ const app = Vue.createApp({
 
             // 把結果塞回 allData
             this.allData.forEach((item, index) => {
-                if(imgURLs[index] !=""){
+                if (imgURLs[index] && imgURLs[index] !== "") {
                     item.imgURL = imgURLs[index];
-                }
-                else{
-                    // 如果 Twitch 沒有大頭貼，就嘗試抓本地圖片
-                    this.getLoaclImg(item.player.split('(')[0].trim()).then(path => {
-                        if(path != undefined){
-                            item.imgURL = path;
-                        }
-                        else{
-                            item.imgURL = "";
-                        }
-                    });
+                } else if (!item.imgURL) {
+                    item.imgURL = ""; // 確保不會是 undefined
                 }
             });
 
@@ -108,12 +116,56 @@ const app = Vue.createApp({
 
             console.log("整理好的 RC:", this.RC);
         },
-        async getLoaclImg(name) {
-            const path = `/assets/img/profile_Img/${name}.png`
-            const response = await fetch(path, { method: 'HEAD' });
-            if(response.ok){
-                return path;
+        async getYouTubeAvatar(handle) {
+            const API_KEY = 'AIzaSyB_o_8liM3taVxZG5CS1pbfwftrwDh492o';
+            
+            // 處理 Handle 字串
+            let cleanHandle = handle;
+
+            if (handle.startsWith('@')) {
+                // 如果開頭有 @，就從第 2 個字元開始截取到最後
+                cleanHandle = handle.substring(1);
             }
+        
+            try {
+                const response = await axios.get('https://www.googleapis.com/youtube/v3/channels', {
+                    params: {
+                        part: 'snippet',
+                        forHandle: cleanHandle,
+                        key: API_KEY
+                    }
+                });
+        
+                if (response.data.items && response.data.items.length > 0) {
+                    return response.data.items[0].snippet.thumbnails.default.url;
+                } else {
+                    console.warn('YouTube API 找不到此 Handle:', cleanHandle);
+                    return 'assets/img/default-avatar.png';
+                }
+                
+            } catch (error) {
+                console.error('YouTube API 請求出錯:', error.message);
+                return 'assets/img/default-avatar.png';
+            }
+        },
+        async getLoaclImg(name) {
+            const path = `/assets/img/profile_Img/${name}.png`;
+    
+            try {
+                const response = await fetch(path, { method: 'HEAD' });
+                
+                if (response.ok) {
+                    console.log(`找到本地圖片: ${path}`);
+                    return path;
+                } else {
+                    console.warn(`本地圖片不存在 (404): ${path}`);
+                    return ""; 
+                }
+            } catch (error) {
+                console.error(`Fetch 過程出錯:`, error);
+                return ""; 
+            }
+            
         },
         async getURL(name) {
 
@@ -198,9 +250,9 @@ const app = Vue.createApp({
             const match = player.match(/^(.+?)\s*[\(\（](.+?)[\)\）]$/);
     
             if (match) {
-                const id = match[1].trim();      // roach
-                const nickname = match[2].trim(); // 小強
-                return `${nickname} (${id})`;    // 輸出：小強 (roach)
+                const id = match[1].trim();      // ds83171
+                const nickname = match[2].trim(); // 阿痕
+                return `${nickname} (${id})`;    // 輸出：阿痕 (ds83171)
             }
     
             // 如果沒有括號，代表只有 ID，直接回傳
