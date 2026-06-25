@@ -33,6 +33,19 @@ const app = Vue.createApp({
                 '布雷諾': 'https://www.youtube.com/@layno_renewlive',
                 '光頭': 'https://www.youtube.com/@atamahikarich.6358',
                 '桃米': 'https://www.youtube.com/@Taomi_TuanZih',
+                '鴉片': 'https://www.twitch.tv/Append',
+                '阿痕': 'https://www.twitch.tv/ds83171',
+                'MX': 'https://www.twitch.tv/mengxiang',
+                'x2205678400000': 'https://www.twitch.tv/x2205678400000',
+                '水無月翔': 'https://www.twitch.tv/kyo99',
+                '星野櫻海': 'https://www.twitch.tv/hoshinooumi',
+                'roots_games': 'https://www.youtube.com/@RootTsou',
+                'Grega12076318': 'https://www.twitch.tv/Grega12076318',
+                'FM': 'https://www.twitch.tv/finalmethod',
+                '克羅': 'https://www.twitch.tv/tail_komp',
+                '雪霏': 'https://www.twitch.tv/sharronsu_ch',
+                '幽奇': 'https://www.youtube.com/@%E5%B9%BD%E5%A5%87Games',
+                '八音玄古': 'https://www.youtube.com/@8imHenKoo',
             }
         }
     },
@@ -241,6 +254,13 @@ const app = Vue.createApp({
         
             // 處理換行符號 \n 轉為 <br>
             return processedText.replace(/\n/g, '<br>');
+        },
+        parseGame(game) {
+            if (!game) return { main: '', bonus: null };
+            const sep = ' / [+] ';
+            const idx = game.indexOf(sep);
+            if (idx === -1) return { main: game, bonus: null };
+            return { main: game.substring(0, idx), bonus: game.substring(idx + sep.length) };
         },
         getStreamerName(player) {
             if (!player) return '暫時從缺';

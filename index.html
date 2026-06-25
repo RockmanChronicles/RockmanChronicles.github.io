@@ -120,12 +120,14 @@
                             <div class="flex items-start gap-4">
                                 <img v-if="item.imgURL != ''" :src="item.imgURL" class="profileImg w-16 h-16 object-cover rounded-full" :alt="getStreamerName(item.player) + '實況主頭貼'">
                                 <div v-if="item.player != ''" class="flex flex-col">
-                                    <h3 class="text-xl font-semibold">{{ item.game }}</h3>
+                                    <h3 class="text-xl font-semibold">{{ parseGame(item.game).main }}</h3>
+                                    <p v-if="parseGame(item.game).bonus" class="text-sm text-yellow-400">加碼 : {{ parseGame(item.game).bonus }}</p>
                                     <p class="text-l font-semibold">{{ getStreamerName(item.player) }}</p>
-                                    <p class="text-sm text-gray-400">{{ item.note }}</p>
+                                    <p class="text-sm text-gray-400" v-html="renderPlayerLinks(item.note)"></p>
                                 </div>
                                 <div v-else class="flex flex-col">
-                                    <h3 class="text-xl font-semibold">{{ item.game }}</h3>
+                                    <h3 class="text-xl font-semibold">{{ parseGame(item.game).main }}</h3>
+                                    <p v-if="parseGame(item.game).bonus" class="text-sm text-yellow-400">加碼 : {{ parseGame(item.game).bonus }}</p>
                                     <p class="text-xl font-semibold"> 暫時從缺 </p>
                                 </div>
                             </div>
@@ -134,12 +136,14 @@
                         <div v-else class="flex items-start gap-4">
                             <img v-if="item.imgURL != ''" :src="item.imgURL" class="profileImg w-16 h-16 object-cover rounded-full" alt="大頭貼">
                             <div v-if="item.player != ''" class="flex flex-col">
-                                <h3 class="text-xl font-semibold">{{ item.game }}</h3>
+                                <h3 class="text-xl font-semibold">{{ parseGame(item.game).main }}</h3>
+                                <p v-if="parseGame(item.game).bonus" class="text-sm text-yellow-400">加碼 : {{ parseGame(item.game).bonus }}</p>
                                 <p class="text-l font-semibold whitespace-pre-line" v-html="renderPlayerLinks(item.player)"></p>
-                                <p class="text-sm text-gray-400">{{ item.note }}</p>
+                                <p class="text-sm text-gray-400" v-html="renderPlayerLinks(item.note)"></p>
                             </div>
                             <div v-else class="flex flex-col">
-                                <h3 class="text-xl font-semibold">{{ item.game }}</h3>
+                                <h3 class="text-xl font-semibold">{{ parseGame(item.game).main }}</h3>
+                                <p v-if="parseGame(item.game).bonus" class="text-sm text-yellow-400">加碼 : {{ parseGame(item.game).bonus }}</p>
                                 <p class="text-xl font-semibold"> 暫時從缺 </p>
                             </div>
                         </div>
