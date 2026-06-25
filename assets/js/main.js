@@ -46,6 +46,7 @@ const app = Vue.createApp({
                 '雪霏': 'https://www.twitch.tv/sharronsu_ch',
                 '幽奇': 'https://www.youtube.com/@%E5%B9%BD%E5%A5%87Games',
                 '八音玄古': 'https://www.youtube.com/@8imHenKoo',
+                '目光': 'https://www.youtube.com/@lucky427_15',
             }
         }
     },
